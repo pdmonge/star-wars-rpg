@@ -1,0 +1,47 @@
+title {
+	display: none;
+}
+body {
+
+}
+* {
+	display: block;
+}
+#characters {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	float: left;
+}
+#attacker,
+#defender {
+	float: left;
+	width: 40%;
+	height: 350px;
+	margin: 0px 20px;
+}
+#attacker {
+	background: green;
+}
+#defender {
+	background: blue;
+}
+figure {
+	margin: 0px 5px;
+	height: 200px;
+	width: 225px;
+/*	display: block;*/
+	background: darkgrey;
+	color: white;
+	text-align: center;
+	float: left;
+	border: 5px solid grey;
+}
+li,
+span {
+	display: inline;
+	padding: 1px;
+	margin: 0 5px;
+}
+span:first-child {
+	font-weight: bold;
+}
