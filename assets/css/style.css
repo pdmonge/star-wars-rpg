@@ -7,7 +7,7 @@ body {
 	text-align: center;
 }
 * {
-	display: block;
+	/*display: block;*/
 }
 #characters {
 	padding-top: 30px;
