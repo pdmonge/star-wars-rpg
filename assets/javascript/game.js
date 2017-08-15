@@ -1,6 +1,8 @@
 $( document ).ready(function() {
 	// STAR WARS Game
 	// Game object instead of globals?
+	var attackerName = "";
+	var defenderName = "";
 
 	// 	Create characters with HealthPoints, AttackPower, CounterAttackPower
 	//	name, image
@@ -13,11 +15,14 @@ $( document ).ready(function() {
 		{name:"Emperor Palpatine",healthPoints:"50",attackPower:"10",counterAttackPower:"10"},
 	];
 
+	// make variables for the main html areas
 	const charactersDiv = $("#characters");
+	const attackerDiv = $("#attacker");
+	const defenderDiv = $("#defender");
 
 	// onLoad add all characters to "characters" div
-	// add event handler for onLoad
 	// add charDiv property to each character
+	// add event handler for click
 	for (var i = 0; i < characterList.length; i++) {
 		characterList[i].htmlString = "<figure id='c"+i+"'>";
 		characterList[i].htmlString += "<span>"+characterList[i].name+"</span><br>";
@@ -26,14 +31,34 @@ $( document ).ready(function() {
 		characterList[i].htmlString += "<span>Counter: "+characterList[i].counterAttackPower+"</span>";
 		characterList[i].htmlString += "</figure>";
 		charactersDiv.append(characterList[i].htmlString);
+
 		characterList[i].charDiv = $("#c"+i);
-		// console.log(characterList[i].charDiv);
+
+		characterList[i].clickEvent = characterList[i].charDiv.click(function () {
+			var index = $(this).attr("id")[1];
+
+			if (attackerName === "") {
+				characterList[index].charDiv.remove();
+				attackerDiv.prepend(characterList[index].htmlString);
+				attackerName = characterList[index].name;
+			} 
+			else if (defenderName === "") {
+				characterList[index].charDiv.remove();
+				defenderDiv.prepend(characterList[index].htmlString);
+				defenderName = characterList[index].name;
+			}
+		});
 	}
 	// console.log(charactersDiv.html);
+
 	
+
 	// 	Gameplay
 
 	// 	Player clicks a character to pick an attacker (attacker)
+		// remove attacker from characters
+		// add attacker to attacker div
+
 
 	// 	Player clicks a character to pick a defender (defender)
 
